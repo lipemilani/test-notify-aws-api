@@ -42,6 +42,7 @@ class AwsSnsService
             $payload = [
                 'Message'  => json_encode(['message' => $message, 'data' => $data]),
                 'TopicArn' => $this->topicArn,
+                'MessageGroupId' => 'default-group',
             ];
 
             $this->sns->publish($payload);
